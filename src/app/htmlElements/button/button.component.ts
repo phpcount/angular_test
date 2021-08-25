@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { IconDirective } from 'src/app/icons/icon.directive';
+import { IconDirective } from '../../icons/icon.directive';
 
 @Component({
     selector: 'el-button',

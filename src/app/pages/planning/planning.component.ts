@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { MediaService } from 'src/app/services/media.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MediaService } from '../../services/media.service';
 
 export interface PlanningElement {
     id: string;

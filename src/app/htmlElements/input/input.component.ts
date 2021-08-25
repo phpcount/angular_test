@@ -1,5 +1,5 @@
 import { AfterViewChecked, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { IconDirective } from 'src/app/icons/icon.directive';
+import { IconDirective } from '../../icons/icon.directive';
 
 @Component({
     selector: 'el-input',
