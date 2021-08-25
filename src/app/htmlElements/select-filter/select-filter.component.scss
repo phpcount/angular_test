@@ -1,0 +1,51 @@
+.menu-list {
+    margin: 0;
+    padding: 8px 0px;
+    min-width: 168px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+
+    & > li {
+        list-style-type: none;
+    }
+
+    &__group-name, &__item {
+        padding: 10px 16px;
+    }
+
+    &__group-name {
+        cursor: default;
+        color: var(--secondary);
+        font-size: 10px;
+
+        &:not(:first-child) {
+            padding-top: 16px;
+        }
+    }
+
+    &__item {
+        cursor: pointer;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-text.active {
+            color: var(--blue);
+        }
+
+        &-checkbox {
+            margin-right: -16px;
+        }
+
+        &:hover {
+            background-color: var(--border-modal);
+        }
+        &:active {
+            background-color: rgba(0, 0, 0, 0.16);
+        }
+    }
+
+  }

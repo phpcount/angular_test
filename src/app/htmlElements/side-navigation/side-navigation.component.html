@@ -1,0 +1,4 @@
+<div class="side-navigation" #menuSidebar>
+    <el-button-close class="side-navigation__closebtn" (click)="closeNav($event)"></el-button-close>
+    <a *ngFor="let item of menuItems" [attr.href]="item.url" (click)="goToLink($event, item.url)">{{item.label}}</a>
+</div>

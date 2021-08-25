@@ -1,0 +1,11 @@
+<div class="ui-button select-none" [class.ui-button_size_big]="big">
+    <div class="ui-button__icon">
+        <ng-container [ngSwitch]="type">
+            <icon-plus *ngSwitchCase="'add'" [big]="big"></icon-plus>
+            <icon-cross *ngSwitchCase="'remove'"></icon-cross>
+            <icon-settings-filter *ngSwitchCase="'settings'" icon></icon-settings-filter>
+             <span *ngSwitchDefault></span>
+         </ng-container>
+    </div>
+    <span *ngIf="!!label" class="ui-button__label ui-button__label_color_{{color}}">{{label}}</span>
+</div>

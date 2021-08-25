@@ -1,0 +1,13 @@
+:host {
+    display: block;
+
+    &.focused svg path {
+        fill-opacity: 0.87;
+    }
+
+    &.dark svg path {
+        fill: var(--secondary);
+    }
+    
+}
+

@@ -1,0 +1,71 @@
+<section class="tabs-content">
+    <mat-tab-group  class="tabs-content__table" [selectedIndex]="0">
+        <!-- tab 1 -->
+        <mat-tab label="Групповое">
+            <div class="table-session">
+                <div class="filter">
+                    <div class="filter__panel filter__by_fields">
+                        <el-input class="filter__control filter__control-search mobile" placeholder="Поиск" value="" type="search"></el-input>
+                        <ng-container *ngIf="isDesktop;else mobileFilter">
+                            <el-select class="filter__control" [itemList]="programmsSelect" [currentItem]="programmsSelect[0]" label="Программа"></el-select>
+                            <el-select class="filter__control" [itemList]="periodsSelect" [currentItem]="periodsSelect[0]" label="Период"></el-select>
+                            <el-select class="filter__control" [itemList]="statusesSelect" [currentItem]="statusesSelect[0]" label="Статус"></el-select>
+                        </ng-container>
+                        <ng-template #mobileFilter>
+                            <select-filter class="filter__control-select-filter mobile" [menuGroups]="menuGroups" (onChangeValue)="settingFilter($event)" label="" color="dark"></select-filter>
+                        </ng-template>
+                    </div>
+                    
+                    <div class="filter__panel filter__settings" *ngIf="isDesktop;else mobileSort">
+                        <div class="filter__settings-session_count">{{planningElements.length}} сессии</div>
+                        <select-filter label="Настроить фильтр" [menuGroups]="menuGroups" (onChangeValue)="settingFilter($event)"></select-filter>
+                        <el-button type="remove" label="Сбросить" color="dark" (click)="resetFilter()"></el-button>
+                    </div>
+                    <ng-template #mobileSort>
+                        <el-select class="filter__control mobile" [itemList]="sortSelect" [currentItem]="sortSelect[0]" label="Сортировка"></el-select>
+                    </ng-template>
+                </div>
+
+                <table mat-table [dataSource]="dataSource" matSort matSortActive="progress" matSortDisableClear matSortDirection="desc">
+                  
+                    <ng-container matColumnDef="date">
+                      <th mat-header-cell *matHeaderCellDef>Дата начала</th>
+                      <td mat-cell *matCellDef="let element"> {{element.date | dateFormatPipe}} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef class="name-width-th">Название</th>
+                      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="members">
+                      <th mat-header-cell *matHeaderCellDef  class="members-width-th">{{ isDesktop ? 'Участников' : 'Уч.' }}</th>
+                      <td mat-cell *matCellDef="let element"> {{element.members}} </td>
+                    </ng-container>
+            
+                    <ng-container matColumnDef="trainer">
+                      <th mat-header-cell *matHeaderCellDef>Тренер</th>
+                      <td mat-cell *matCellDef="let element"> {{element.trainer}} </td>
+                    </ng-container>
+            
+                    <ng-container matColumnDef="progress">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Прогресс</th>
+                      <td mat-cell *matCellDef="let element"><span style="display: flex; align-items: center;"><icon-progress style="margin-right: 4px;"></icon-progress>{{element.progress | percent}}</span></td>
+                    </ng-container>
+            
+                    <ng-container *ngIf="isDesktop" matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell  *matCellDef="let element" class="row-options">
+                            <menu-table-row [rowId]="element.id" (onRemove)="removeRow($event)"></menu-table-row>
+                        </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [attr.disabled]="row.disabled" [class.select-none]="row.disabled"></tr>
+                  </table>
+                </div>
+        </mat-tab>
+        <!-- tab 2 -->
+        <mat-tab label="Индивидуальное"> Content 2</mat-tab>
+    </mat-tab-group>
+</section>

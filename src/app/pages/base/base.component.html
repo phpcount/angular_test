@@ -1,0 +1,47 @@
+
+<header class="header">
+    <icon-sidebar class="side-navigation__icon type-button" (click)="openOrCloseNav($event)"></icon-sidebar>
+    <ng-container *ngIf="isDesktop; else elseBlock1">
+        <el-button 
+            *ngIf="currentRoute.url === '/planning'" 
+            class="header__button" 
+            [type]="'add'" 
+            [color]="'blue'" 
+            [label]="'Запланировать'" 
+            (click)="openOrCloseNewPlan($event)">
+        </el-button>
+    </ng-container>
+    <ng-template #elseBlock1>
+        <h3 class="header__mobile montserrat-bold">Обучение</h3>
+        <el-button 
+            *ngIf="currentRoute.url === '/planning'" 
+            class="header__button" 
+            [type]="'add'" 
+            [big]="true" 
+            [color]="'blue'" 
+            (click)="openOrCloseNewPlan($event)">
+        </el-button>
+    </ng-template>
+</header>
+
+<!-- <el-radio group="rad" el-id="rad1" label="Не использовать код" disabled></el-radio>
+<el-radio group="rad" el-id="rad2" label="Не использовать код доступа"></el-radio>
+<el-checkbox label="Label" group="wer" el-id="test1" checked="true" disabled="true"></el-checkbox> -->
+
+<div class="container-base">
+    <nav class="navbar">
+        <el-breadcrumb [menuItems]="breadcrumbsMenuItems"></el-breadcrumb>
+    </nav>
+     <!-- headers of page  -->
+    <div class="main-content" [attr.id]="contentWrapperId">
+        <div *ngIf="isDesktop" class="main-content__header">
+            <icon-planning *ngIf="currentRoute.url === '/planning'" class="main-content__header-icon"></icon-planning>
+            <h2 class="main-content__header-title">{{currentRoute.label}}</h2>
+        </div>
+         <!-- main content of page  -->
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<!-- Fixed postion components -->
+<add-plan-modal *ngIf="isOpenNewModal" (onClose)="openOrCloseNewPlan()"></add-plan-modal>
+<el-side-navigation *ngIf="isOpenSideNavigation" class="header__sidebar" [menuItems]="navRoutes" [contentWrapperId]="contentWrapperId" (onClose)="openOrCloseNav()"></el-side-navigation>

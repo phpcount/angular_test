@@ -1,0 +1,7 @@
+<input class="checkbox-btn" [class.without_square]="!square" [attr.disabled]="_disabled" type="checkbox" [attr.id]="id" [attr.checked]="_checked ? true : null" (change)="onChange()">
+<div class="checkbox-tick">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.33332 7.64164L1.85832 4.16664L0.674988 5.34164L5.33332 9.99997L13.6667 1.66664L12.4917 0.491638L5.33332 7.64164Z" fill="#1071FF"/>
+    </svg>
+</div>
+<label class="checkbox-label" [attr.for]="id"><div class="checkbox-text" [class.blue-text]="blueText && _checked">{{ label }}</div></label>

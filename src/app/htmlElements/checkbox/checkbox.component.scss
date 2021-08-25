@@ -1,0 +1,90 @@
+$main_color: rgba($color: #000, $alpha: 0.05);
+:host {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    & > * {
+        cursor: pointer;
+    }
+
+    .checkbox-btn {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        z-index: 10;
+        margin: 0;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        
+        background-color: $main_color;
+        border-radius: 2px;
+        vertical-align: bottom;
+        outline: none;
+
+        &:hover {
+            background-color: rgba($color: #000, $alpha: 0.08);
+        }
+
+        &:active {
+            background-color: rgba($color: #000, $alpha: 0.16);
+        }
+
+        &:not(:checked) + .checkbox-tick {
+            display: none;
+        }
+
+    }.without_square {
+        background-color: transparent;
+        &:hover, &:active {
+            background-color: transparent;
+        }
+    }
+
+    .checkbox-tick {
+        display: block;
+        z-index: 1;
+        position: absolute;
+        left: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .checkbox-label {
+        margin: 0;
+        padding-left: 16px;
+        color: var(--primary);
+
+        .checkbox-text {
+            width: 100%;
+        }
+
+        &.blue-text {
+            color: var(--blue);
+        }
+    }
+
+    &[disabled="true"] {
+
+        .checkbox-tick path {
+            fill: rgba(0, 0, 0, 0.22);
+        }
+
+        .checkbox-label {
+            color: rgba($color: #000, $alpha: 0.22);
+        }
+
+        .checkbox-btn {
+            &:hover {
+                background: $main_color;
+            }
+
+            &:active {
+                background-color: $main_color;
+            }
+
+        }
+    }
+    
+}

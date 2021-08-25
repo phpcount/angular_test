@@ -1,0 +1,34 @@
+<div class="field-container">
+  <el-button 
+    type="settings" 
+    [label]="label" 
+    [color]="color" 
+    cdkOverlayOrigin 
+    #trigger="cdkOverlayOrigin" 
+    (click)="isOpenSelect = !isOpenSelect">
+  </el-button>
+  
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOffsetY]="12"
+    [cdkConnectedOverlayOffsetX]="0"
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="isOpenSelect">
+    <ul class="menu-list">
+        <ng-container *ngFor="let itemList of menuGroups;index as group_index">
+            <div class="menu-list__group-name">{{itemList.group_name}}</div>
+            <ng-container *ngFor="let item of itemList.list;index as item_index">
+                <li class="menu-list__item" (click)="changeVisibility($event, group_index, item_index)">
+                    <span class="menu-list__item-text select-none">{{item.label}}</span>
+                    <el-checkbox class="menu-list__item-checkbox" 
+                        [square]="false" 
+                        [el-id]="item.id" 
+                        [checked]="item.show" 
+                        #checkbox 
+                        (click)="changeVisibility($event, group_index, item_index)"></el-checkbox>
+                </li>
+            </ng-container>
+        </ng-container>
+    </ul>
+  </ng-template>
+</div>

@@ -1,0 +1,34 @@
+.el-select {
+
+
+    &__button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+
+        &:active {
+            background-color: var(--border-modal);
+        }
+    }
+
+    &__menu-item {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    &__icon {
+        padding-right: 16px;
+    }
+}

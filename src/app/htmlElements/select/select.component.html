@@ -1,0 +1,15 @@
+<div class="field-container">
+    <el-input [label]="label" [value]="currentItem.label" cdkOverlayOrigin #trigger="cdkOverlayOrigin" [modeSelect]="true" [isOpen]="isOpenSelect" (onClick)="isOpenSelect = $event"></el-input>
+    <ng-template 
+        cdkConnectedOverlay 
+        [cdkConnectedOverlayOffsetY]="12" 
+        [cdkConnectedOverlayOffsetX]="3"
+        [cdkConnectedOverlayOrigin]="trigger" 
+        [cdkConnectedOverlayOpen]="isOpenSelect">
+        <ul class="menu-list">
+            <li class="menu-list__item" *ngFor="let item of itemList" (click)="selectItem(item)">
+                <span class="menu-list__item-text select-none" [class.menu-list__item-text-active]="item.id === currentItem.id">{{item.label}}</span>
+            </li>
+        </ul>
+    </ng-template>
+</div>

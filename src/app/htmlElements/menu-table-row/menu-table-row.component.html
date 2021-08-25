@@ -1,0 +1,15 @@
+<div class="el-select">
+    <button class="el-select__button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-dots">
+        <icon-dots></icon-dots>
+    </button>
+    <mat-menu class="el-select__select" #menu="matMenu" yPosition="above">
+        <button class="el-select__menu-item" mat-menu-item>
+            <icon-pencil class="el-select__icon"></icon-pencil>
+            <span>Редактировать</span>
+        </button>
+        <button class="el-select__menu-item" mat-menu-item (click)="removeRow()">
+            <icon-trash-can class="el-select__icon"></icon-trash-can>
+            <span>Удалить</span>
+        </button>
+    </mat-menu>
+</div>

@@ -1,0 +1,110 @@
+.tabs-content {
+    margin: 0 -24px;
+
+    .table-session {
+        padding-top: 55px;
+
+        .filter {
+            margin-bottom: 26px;
+
+            &__panel {
+                display: flex;
+                align-items: center
+                
+            }
+
+            &__by_fields {
+                margin-bottom: 26px;
+            }
+
+            &__settings {
+                
+                &-session_count {
+                    margin-right: 90px;
+                    color: var(--secondary);
+                }
+
+                margin-bottom: 38px;
+            }
+
+            &__control {
+                width: 166px;
+                margin-right: 30px;
+            }
+        }
+
+    }
+}
+
+
+
+@media screen and (max-width: 576px) {
+    .tabs-content {
+        margin: 0 -24px;
+    
+        .table-session {
+            padding-top: 23px;
+    
+            .filter {
+                &__panel {
+                    display: flex;
+                    align-items: center
+                    
+                }
+    
+                &__by_fields {
+                    position: relative;
+                    margin-bottom: 35px;
+                }
+    
+                &__settings {
+                    
+                    &-session_count {
+                        margin-right: 76px;
+                        color: var(--secondary);
+                    }
+    
+                    margin-bottom: 48px;
+                }
+    
+                &__control {
+                    margin-right: 0px;
+
+                    &-search {
+                        width: 100%;
+                    }
+
+                    &:not(.mobile) {
+                        display: none;
+                    }
+
+                    &-select-filter {
+                        z-index: 100;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 0px;
+                        margin-right: -20px;
+                    }
+                }
+            }
+    
+            table {
+                .name-width {
+                    &-th {
+                        width: 118px;
+                    }
+                }
+                .members-width {
+                    &-th {
+                        width: 27px;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+}
+

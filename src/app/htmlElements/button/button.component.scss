@@ -1,0 +1,44 @@
+.ui-button {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 24px;
+    padding: 10px 20px 10px 16px;
+
+    &__icon:not(span) {
+        width: 18px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    &__label {
+        font-family: 'Montserrat-SemiBold', sans-serif;
+        font-weight: 600;
+        margin-left: 8px;
+        color: var(--blue);
+
+        &_color_dark {
+            color: var(--secondary);
+        }
+
+        &_color_blue {
+            color: var(--blue);
+        }
+    }
+
+    &_size_big {
+        padding: 10px 0px 10px 16px;
+        // padding: 12px 20px 12px 16px;
+    }
+
+    &:hover {
+        background: rgba(#1071FF, 0.04);
+    }
+
+    &:active {
+        background: rgba(#1071FF, 0.16);
+    }
+}

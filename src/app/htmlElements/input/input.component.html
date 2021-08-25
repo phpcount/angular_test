@@ -1,0 +1,29 @@
+<div class="el-label montserrat-medium">{{label}}</div>
+<div class="el-input">
+    <div class="el-input__container">
+        <ng-container [ngSwitch]="type">
+            <icon-search icon class="el-input__icon" *ngSwitchCase="'search'"></icon-search>
+            <icon-calendar icon class="el-input__icon" *ngSwitchCase="'calendar'"></icon-calendar>
+            <icon-clock icon class="el-input__icon" *ngSwitchCase="'clock'"></icon-clock>
+            <icon-avatar icon class="el-input__icon" *ngSwitchCase="'avatar'"></icon-avatar>
+            <span *ngSwitchDefault></span>
+         </ng-container>
+        <input 
+            class="el-input__input" 
+            [class.mode-select]="modeSelect" 
+            [readonly]="modeSelect" 
+            [placeholder]="placeholder" 
+            [value]="value" 
+            (input)="onInput.emit($event)" 
+            (focusin)="iconFocus('in')" 
+            (focusout)="iconFocus('out')"
+            (click)="openSelect()">
+        <div class="el-input__line" [class.el-input__line-open]="modeSelect && isOpen"></div>
+        <div *ngIf="modeSelect" class="el-input__arrow">
+            <icon-arrow-up *ngIf="isOpen;else elseBlock"></icon-arrow-up>
+            <ng-template #elseBlock>
+                <icon-arrow-down></icon-arrow-down>
+            </ng-template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<ng-container *ngFor="let item of _menuItems; index as i">
+    <span *ngIf="i > 0">—</span>
+    <a [attr.href]="item.url" (click)="goToLink($event, item.url)">{{item.label}}</a>
+</ng-container>
